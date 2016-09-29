@@ -28,7 +28,7 @@ OPTIONS
     -h [number]
             This option sets the highlite color according to
             the color chart below.
-            Default is [37m37 (white)[0m
+            Default is 37 (white)
     -k
             This option sets kanji font.
             Default is disabled
@@ -36,7 +36,7 @@ OPTIONS
     -m [number]
             This option sets the main color according to
             the color chart below.
-            Default is [34m34 (blue)[0m
+            Default is 34 (blue)
 
     -s [number]
             This option sets drop speed.
@@ -44,14 +44,14 @@ OPTIONS
             Default is 1
 
 COLOR CHART
-    30      Black    [30mBlack[0m
-    31      Red      [31mRed[0m
-    32      Green    [32mGreen[0m
-    33      Yellow   [33mYellow[0m
-    34      Blue     [34mBlue[0m
-    35      Magenta  [35mMagenta[0m
-    36      Cyan     [36mCyan[0m
-    37      White    [37mWhite[0m
+    30      Black
+    31      Red
+    32      Green
+    33      Yellow
+    34      Blue
+    35      Magenta
+    36      Cyan
+    37      White
 
 </code></pre>
 

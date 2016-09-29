@@ -127,7 +127,6 @@ COLOR CHART
 exit 0
 }
 
-
 ## vars below can be changed
 KANJI="false"
 MN_CLR="34"

@@ -60,6 +60,7 @@ Requirements
 
 - Bash (https://www.gnu.org/software/bash/)
 - GNU Awk (https://www.gnu.org/software/gawk/)
+- GNU BC (https://www.gnu.org/software/bc/)
 
 
 License and Author

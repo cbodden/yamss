@@ -1,6 +1,6 @@
 ![Unsupported](https://img.shields.io/badge/development_status-in_progress-green.svg) ![License GPLv3](https://img.shields.io/badge/license-GPLv3-green.svg)
 
-yamms
+yamss
 ====
 
 [Y]et [A]nother [M]atrix [S]hell [S]cript

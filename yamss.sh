@@ -1,8 +1,21 @@
 #!/usr/bin/env bash
+#===============================================================================
 #
-# [y]et [a]nother [m]atrix [s]hell [s]cript
+#          FILE: yamss.sh
 #
-# https://en.wikipedia.org/wiki/ANSI_escape_code
+#         USAGE: ./yamss.sh
+#
+#   DESCRIPTION: [Y]et [A]nother [M]atrix [S]hell [S]cript.
+#                This script shows a matrix like display in terminal.
+#       OPTIONS: -d,-h [num],-k,-m [num],-s [num
+#  REQUIREMENTS: bash, gnu awk, gnu bc
+#          BUGS: who knows
+#         NOTES: https://en.wikipedia.org/wiki/ANSI_escape_code
+#        AUTHOR: Cesar Bodden (), cesar@pissedoffadmins.com
+#  ORGANIZATION: pissedoffadmins.com
+#       CREATED: 09/29/2016 05:14:34 PM EDT
+#      REVISION: 3
+#===============================================================================
 
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(readlink -m $(dirname $0))

@@ -14,7 +14,7 @@
 #        AUTHOR: Cesar Bodden (), cesar@pissedoffadmins.com
 #  ORGANIZATION: pissedoffadmins.com
 #       CREATED: 09/29/2016 05:14:34 PM EDT
-#      REVISION: 3
+#      REVISION: 4
 #===============================================================================
 
 readonly PROGNAME=$(basename $0)
@@ -91,6 +91,7 @@ function loop()
 
 function usage()
 {
+    clear
     ## full description
 echo -e "
 NAME

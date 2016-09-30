@@ -8,6 +8,8 @@ yamss
 Usage
 ----
 
+![yamss-gif](yamss.gif)
+
 <pre><code>
 
 NAME

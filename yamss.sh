@@ -35,16 +35,23 @@ function main()
         "\033[?25l"
 
     ## set character type
-    if [[ ${KANJI} == "true" ]]
-    then
-        ## kanji
-        declare -g _LET=($(\
-            awk 'BEGIN{for(i=12032;i<12246;i++)printf "%c\n",i}'))
-    else
-        ## not kanji
-        declare -g _LET=($(\
-            awk 'BEGIN{for(i=128;i<600;i++)printf "%c\n",i}'))
-    fi
+    case "${CHARS}" in
+        '1')
+            ## regular characters
+            declare -g _LET=($(\
+                awk 'BEGIN{for(i=49;i<126;i++)printf "%c\n",i}'))
+            ;;
+        '2')
+            ## kanji
+            declare -g _LET=($(\
+                awk 'BEGIN{for(i=12032;i<12246;i++)printf "%c\n",i}'))
+            ;;
+        '3')
+            ## not kanji
+            declare -g _LET=($(\
+                awk 'BEGIN{for(i=128;i<600;i++)printf "%c\n",i}'))
+            ;;
+    esac
 }
 
 function loop()
@@ -107,6 +114,10 @@ DESCRIPTION
     This script shows a matrix like display in terminal.
 
 OPTIONS
+    -c [number]
+            This option sets the characters used for display.
+            Different characters listed in chart below.
+            Default is standard (1).
     -d
             This option runs everything in default settings.
             This should be run by itself.
@@ -115,9 +126,6 @@ OPTIONS
             This option sets the highlite color according to
             the color chart below.
             Default is \033[37m37 (white)\033[0m
-    -k
-            This option sets kanji font.
-            Default is disabled
 
     -m [number]
             This option sets the main color according to
@@ -128,6 +136,35 @@ OPTIONS
             This option sets drop speed.
             Range is from 1 (fastest ) to 10 ( slowest )
             Default is 1
+
+CHARACTER CHART
+    Option [1]:
+        Standard: 123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
+                  ]^_abcdefghijklmnopqrstuvwxyz{|}
+
+    Option [2]:
+           Kanji: ⼀⼁⼂⼃⼄⼅⼆⼇⼈⼉⼊⼋⼌⼍⼎⼏⼐⼑⼒⼓⼔⼕
+                  ⼖⼗⼘⼙⼚⼛⼜⼝⼞⼟⼠⼡⼢⼣⼤⼥⼦⼧⼨⼩⼪⼫
+                  ⼬⼭⼮⼯⼰⼱⼲⼳⼴⼵⼶⼷⼸⼹⼺⼻⼼⼽⼾⼿⽀⽁
+                  ⽂⽃⽄⽅⽆⽇⽈⽉⽊⽋⽌⽍⽎⽏⽐⽑⽒⽓⽔⽕⽖⽗
+                  ⽘⽙⽚⽛⽜⽝⽞⽟⽠⽡⽢⽣⽤⽥⽦⽧⽨⽩⽪⽫⽬⽭
+                  ⽮⽯⽰⽱⽲⽳⽴⽵⽶⽷⽸⽹⽺⽻⽼⽽⽾⽿⾀⾁⾂⾃
+                  ⾄⾅⾆⾇⾈⾉⾊⾋⾌⾍⾎⾏⾐⾑⾒⾓⾔⾕⾖⾗⾘⾙
+                  ⾚⾛⾜⾝⾞⾟⾠⾡⾢⾣⾤⾥⾦⾧⾨⾩⾪⾫⾬⾭⾮⾯
+                  ⾰⾱⾲⾳⾴⾵⾶⾷⾸⾹⾺⾻⾼⾽⾾⾿⿀⿁⿂⿃⿄⿅
+                  ⿆⿇⿈⿉⿊⿋⿌⿍⿎⿏⿐⿑⿒⿓⿔⿕
+
+    Option [3]:
+            Misc: ¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍ
+                  ÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øù
+                  úûüýþÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥ
+                  ĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐő
+                  ŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽ
+                  žſƀƁƂƃƄƅƆƇƈƉƊƋƌƍƎƏƐƑƒƓƔƕƖƗƘƙƚƛƜƝƞƟƠơƢƣƤƥƦƧƨƩ
+                  ƪƫƬƭƮƯưƱƲƳƴƵƶƷƸƹƺƻƼƽƾƿǀǁǂǃǄǅǆǇǈǉǊǋǌǍǎǏǐǑǒǓǔǕ
+                  ǖǗǘǙǚǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽǾǿȀȁ
+                  ȂȃȄȅȆȇȈȉȊȋȌȍȎȏȐȑȒȓȔȕȖȗȘșȚțȜȝȞȟȠȡȢȣȤȥȦȧȨȩȪȫȬȭ
+                  ȮȯȰȱȲȳȴȵȶȷȸȹȺȻȼȽȾȿɀɁɂɃɄɅɆɇɈɉɊɋɌɍɎɏɐɑɒɓɔɕɖɗ%
 
 COLOR CHART
     30      Black    \033[30mBlack\033[0m
@@ -144,23 +181,23 @@ exit 0
 }
 
 ## vars below can be changed
-KANJI="false"
+CHARS="1"
 MN_CLR="34"
 HL_CLR="37"
 SLEEP="0.1"
 
 ## option selection
-while getopts "dh:km:s:" OPT
+while getopts "c:dh:m:s:" OPT
 do
     case "${OPT}" in
+        'c')
+            CHARS=${OPTARG}
+            ;;
         'd')
             true
             ;;
         'h')
             HL_CLR=${OPTARG}
-            ;;
-        'k')
-            KANJI="true"
             ;;
         'm')
             MN_CLR=${OPTARG}

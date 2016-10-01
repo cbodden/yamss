@@ -7,7 +7,7 @@
 #
 #   DESCRIPTION: [Y]et [A]nother [M]atrix [S]hell [S]cript.
 #                This script shows a matrix like display in terminal.
-#       OPTIONS: -d, -h [num], -k, -m [num], -s [num]
+#       OPTIONS: -c [num], -d, -h [num], -m [num], -s [num]
 #  REQUIREMENTS: bash, gnu awk, gnu bc
 #          BUGS: they will be discovered at random times
 #         NOTES: https://en.wikipedia.org/wiki/ANSI_escape_code

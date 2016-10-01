@@ -223,6 +223,8 @@ do
     read -t ${SLEEP} -s -n 1 KILL
     if [[ ${KILL} == "q" ]]
     then
+        kill $(jobs -p)
+        reset
         pkill -o -f "bash.*${PROGNAME}"
     fi
 done

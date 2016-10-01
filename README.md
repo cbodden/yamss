@@ -27,6 +27,7 @@ OPTIONS
             This option sets the characters used for display.
             Different characters listed in chart below.
             Default is standard (1).
+
     -d
             This option runs everything in default settings.
             This should be run by itself.

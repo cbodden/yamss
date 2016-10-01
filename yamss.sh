@@ -139,8 +139,8 @@ OPTIONS
 
 CHARACTER CHART
     Option [1]:
-        Standard: 123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
-                  ]^_abcdefghijklmnopqrstuvwxyz{|}
+        Standard: 123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]
+                  ^_abcdefghijklmnopqrstuvwxyz{|}
 
     Option [2]:
            Kanji: ⼀⼁⼂⼃⼄⼅⼆⼇⼈⼉⼊⼋⼌⼍⼎⼏⼐⼑⼒⼓⼔⼕

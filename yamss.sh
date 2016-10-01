@@ -24,8 +24,8 @@ trap 'reset ; exit' 1 2 3 9 15
 
 function main()
 {
-    ROW=$(tput lines)
-    COL=$(tput cols)
+    ROW=$(tput lines)   ## total number of lines in term
+    COL=$(tput cols)    ## total number of columnes in term
 
     ## \033 clear entire screen (ED)
     ## \033 hides the cursor (DECTCEM)

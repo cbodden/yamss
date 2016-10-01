@@ -48,6 +48,7 @@ function main()
 
 function loop()
 {
+
     local _RND_COL=$(($RANDOM%$COL)) ## random tput col
     local _RND_ROW=$(($RANDOM%$ROW)) ## random tput line
 
@@ -180,4 +181,9 @@ do
     {
         loop
     } & sleep ${SLEEP}
+    read -t ${SLEEP} -s -n 1 KILL
+    if [[ ${KILL} == "q" ]]
+    then
+        pkill -o -f "bash.*${PROGNAME}"
+    fi
 done

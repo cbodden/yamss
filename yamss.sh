@@ -14,7 +14,7 @@
 #        AUTHOR: Cesar Bodden (), cesar@pissedoffadmins.com
 #  ORGANIZATION: pissedoffadmins.com
 #       CREATED: 09/29/2016 05:14:34 PM EDT
-#      REVISION: 6
+#      REVISION: 7
 #===============================================================================
 
 readonly PROGNAME=$(basename $0)
@@ -133,6 +133,11 @@ OPTIONS
             the color chart below.
             Default is \033[34m34 (blue)\033[0m
 
+    -q [letter]
+            This option specifies what letter to use to quit
+            out of this script instead of using ctrl + c.
+            Default is q
+
     -s [number]
             This option sets drop speed.
             Range is from 1 (fastest ) to 10 ( slowest )
@@ -182,13 +187,14 @@ exit 0
 }
 
 ## vars below can be changed
-CHARS="1"
-MN_CLR="34"
-HL_CLR="37"
-SLEEP="0.1"
+CHARS="1"       ## default characters to use
+MN_CLR="34"     ## default main color
+HL_CLR="37"     ## default highlight color
+SLEEP="0.1"     ## default sleep interval
+QUIT_LET="q"    ## default quit / kill letter
 
 ## option selection
-while getopts "c:dh:m:s:" OPT
+while getopts "c:dh:m:q:s:" OPT
 do
     case "${OPT}" in
         'c')
@@ -202,6 +208,9 @@ do
             ;;
         'm')
             MN_CLR=${OPTARG}
+            ;;
+        'q')
+            QUIT_LET=${OPTARG}
             ;;
         's')
             SLEEP=$(echo "${OPTARG} / 10" | bc -l)
@@ -220,8 +229,10 @@ do
     {
         loop
     } & sleep ${SLEEP}
-    read -t ${SLEEP} -s -n 1 KILL
-    if [[ ${KILL} == "q" ]]
+    read -t $(\
+        echo "${SLEEP}/10" \
+        | bc -l) -s -n 1 KILL
+    if [[ ${KILL} == ${QUIT_LET} ]]
     then
         kill $(jobs -p)
         reset

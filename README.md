@@ -42,6 +42,11 @@ OPTIONS
             the color chart below.
             Default is 34 (blue)
 
+    -q [letter]
+            This option specifies what letter to use to quit
+            out of this script instead of using ctrl + c.
+            Default is q
+
     -s [number]
             This option sets drop speed.
             Range is from 1 (fastest ) to 10 ( slowest )

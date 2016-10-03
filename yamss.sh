@@ -107,8 +107,8 @@ function loop()
 
 function usage()
 {
+    ## usage / description function
     clear
-    ## full description
 echo -e "
 NAME
     ${PROGNAME} - matrix like shell script

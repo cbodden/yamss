@@ -56,7 +56,6 @@ function main()
     ## sleep time array
     declare -g _SLP=($(\
         seq .01 .01 ${SLEEP}))
-        #seq .01 .01 .5))
 }
 
 function loop()
@@ -234,6 +233,7 @@ main
 while true
 do
     {
+        loop
         loop
     } & sleep ${SLEEP}
     read -t $(\

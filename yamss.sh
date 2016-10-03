@@ -234,7 +234,6 @@ while true
 do
     {
         loop
-        loop
     } & sleep ${SLEEP}
     read -t $(\
         echo "${SLEEP}/10" \

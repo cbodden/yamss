@@ -52,6 +52,11 @@ function main()
                 awk 'BEGIN{for(i=128;i<600;i++)printf "%c\n",i}'))
             ;;
     esac
+
+    ## sleep time array
+    declare -g _SLP=($(\
+        seq .01 .01 ${SLEEP}))
+        #seq .01 .01 .5))
 }
 
 function loop()
@@ -59,6 +64,8 @@ function loop()
 
     local _RND_COL=$(($RANDOM%$COL)) ## random tput col
     local _RND_ROW=$(($RANDOM%$ROW)) ## random tput line
+    ## randomizing sleep for matrixy like drops
+    local _RND_SLP=${_SLP[RANDOM%${#_SLP[@]}]}
 
     ## count 1 - tput lines
     for _LINE in $(seq 1 ${ROW})
@@ -74,7 +81,7 @@ function loop()
             "\033[${MN_CLR}m${_PRN_LET}" \
             "\033[${_LINE};${_RND_COL}H" \
             "\033[${HL_CLR}m"${_PRN_LET}
-        sleep ${SLEEP}
+        sleep ${_RND_SLP}
 
         ## if i is >= random tput line
         if [[ ${_LINE} -ge ${_RND_ROW} ]]
@@ -94,7 +101,7 @@ function loop()
         ## HVP – Horizontal and Vertical Position
         printf "%b" \
             "\033[${_RND_LINE};${_RND_COL}f "
-        sleep ${SLEEP}
+        sleep ${_RND_SLP}
     done
 }
 

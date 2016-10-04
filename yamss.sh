@@ -17,6 +17,14 @@
 #      REVISION: 8
 #===============================================================================
 
+## globals that can be changed
+CHARS="1"               ## default characters to use
+MN_CLR="34"             ## default main color
+HL_CLR="37"             ## default highlight color
+SLEEP="0.1"             ## default sleep interval
+QUIT_LET="q"            ## default quit / kill letter
+## end of globals
+
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(readlink -m $(dirname $0))
 
@@ -204,13 +212,6 @@ COLOR CHART
     "
 exit 0
 }
-
-## vars below can be changed
-CHARS="1"       ## default characters to use
-MN_CLR="34"     ## default main color
-HL_CLR="37"     ## default highlight color
-SLEEP="0.1"     ## default sleep interval
-QUIT_LET="q"    ## default quit / kill letter
 
 ## option selection
 while getopts "c:dh:m:q:s:" OPT

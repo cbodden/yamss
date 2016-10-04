@@ -68,6 +68,10 @@ function main()
     ## sleep time array
     declare -g _SLP=($(\
         seq .01 .01 ${SLEEP}))
+
+    ## color array for rainbow mode
+    declare -g _RNBW=($(\
+        seq 30 1 37))
 }
 
 function loop()
@@ -75,6 +79,11 @@ function loop()
     local _RND_COL=$(($RANDOM%$COL))                    ## random tput col
     local _RND_ROW=$(($RANDOM%$ROW))                    ## random tput line
     local _RND_SLP=${_SLP[RANDOM%${#_SLP[@]}]}          ## random sleep
+
+    if [[ ${RNBW_MODE} == "true" ]]
+    then
+        MN_CLR=${_RNBW[RANDOM%${#_RNBW[@]}]}
+    fi
 
     ## count 1 - tput lines
     for _LINE in $(seq 1 ${ROW})
@@ -218,7 +227,7 @@ exit 0
 }
 
 ## option selection
-while getopts "c:dh:m:q:s:" OPT
+while getopts "c:dh:m:q:rs:" OPT
 do
     case "${OPT}" in
         'c')
@@ -235,6 +244,9 @@ do
             ;;
         'q')
             QUIT_LET=${OPTARG}
+            ;;
+        'r')
+            RNBW_MODE="true"
             ;;
         's')
             SLEEP=$(echo "${OPTARG} / 10" | bc -l)

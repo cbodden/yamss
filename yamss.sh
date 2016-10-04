@@ -14,7 +14,7 @@
 #        AUTHOR: Cesar Bodden (), cesar@pissedoffadmins.com
 #  ORGANIZATION: pissedoffadmins.com
 #       CREATED: 09/29/2016 05:14:34 PM EDT
-#      REVISION: 7
+#      REVISION: 8
 #===============================================================================
 
 readonly PROGNAME=$(basename $0)
@@ -99,6 +99,22 @@ function loop()
             "\033[${_RND_LINE};${_RND_COL}f "
         sleep ${_RND_SLP}
     done
+}
+
+function run()
+{
+    {
+        loop
+    } & sleep ${SLEEP}
+    read -t $(\
+        echo "${SLEEP}/10" \
+        | bc -l) -s -n 1 KILL
+    if [[ ${KILL} == ${QUIT_LET} ]]
+    then
+        kill $(jobs -p)
+        reset
+        pkill -o -f "bash.*${PROGNAME}"
+    fi
 }
 
 function usage()
@@ -229,16 +245,5 @@ shift $((OPTIND-1))
 main
 while true
 do
-    {
-        loop
-    } & sleep ${SLEEP}
-    read -t $(\
-        echo "${SLEEP}/10" \
-        | bc -l) -s -n 1 KILL
-    if [[ ${KILL} == ${QUIT_LET} ]]
-    then
-        kill $(jobs -p)
-        reset
-        pkill -o -f "bash.*${PROGNAME}"
-    fi
+    run
 done

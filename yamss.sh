@@ -23,6 +23,7 @@ MN_CLR="34"             ## default main color
 HL_CLR="37"             ## default highlight color
 SLEEP="0.1"             ## default sleep interval
 QUIT_LET="q"            ## default quit / kill letter
+RNBW_MODE="false"       ## default rainbow mode
 ## end of globals
 
 ##########################################

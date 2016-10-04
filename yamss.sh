@@ -7,7 +7,7 @@
 #
 #   DESCRIPTION: [Y]et [A]nother [M]atrix [S]hell [S]cript.
 #                This script shows a matrix like display in terminal.
-#       OPTIONS: -c [num], -d, -h [num], -m [num], -q [let], -s [num]
+#       OPTIONS: -c [num], -d, -h [num], -m [num], -q [let], -r, -s [num]
 #  REQUIREMENTS: bash, gnu awk, gnu bc
 #          BUGS: they will be discovered at random times
 #         NOTES: https://en.wikipedia.org/wiki/ANSI_escape_code
@@ -63,6 +63,10 @@ function main()
             declare -g _LET=($(\
                 awk 'BEGIN{for(i=128;i<600;i++)printf "%c\n",i}'))
             ;;
+        '4')
+            ## blocks
+            declare -g _LET=($(\
+                awk 'BEGIN{for(i=9617;i<9620;i++)printf "%c\n",i}'))
     esac
 
     ## sleep time array
@@ -179,6 +183,12 @@ OPTIONS
             out of this script instead of using ctrl + c.
             Default is q
 
+    -r
+            This option specifies rainbow road mode.
+            All main and highlite colors will be random from
+            the color chart below.
+            Default is disabled
+
     -s [number]
             This option sets drop speed.
             Range is from 1 (fastest ) to 10 ( slowest )
@@ -212,6 +222,10 @@ CHARACTER CHART
                   ǖǗǘǙǚǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽǾǿȀȁ
                   ȂȃȄȅȆȇȈȉȊȋȌȍȎȏȐȑȒȓȔȕȖȗȘșȚțȜȝȞȟȠȡȢȣȤȥȦȧȨȩȪȫȬȭ
                   ȮȯȰȱȲȳȴȵȶȷȸȹȺȻȼȽȾȿɀɁɂɃɄɅɆɇɈɉɊɋɌɍɎɏɐɑɒɓɔɕɖɗ%
+
+    Option [4]:
+          Blocks: ░▒▓
+
 
 COLOR CHART
     30      Black    \033[30mBlack\033[0m

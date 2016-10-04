@@ -286,13 +286,15 @@ do
             SLEEP=$(echo "${OPTARG} / 10" | bc -l)
             ;;
         *)
-            usage
+            usage | less
+            exit 0
             ;;
     esac
 done
 if [[ ${OPTIND} -eq 1 ]]
 then
-    usage
+    usage | less
+    exit 0
 fi
 shift $((OPTIND-1))
 

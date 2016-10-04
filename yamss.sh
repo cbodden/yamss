@@ -60,10 +60,9 @@ function main()
 
 function loop()
 {
-    local _RND_COL=$(($RANDOM%$COL)) ## random tput col
-    local _RND_ROW=$(($RANDOM%$ROW)) ## random tput line
-    ## randomizing sleep for matrixy like drops
-    local _RND_SLP=${_SLP[RANDOM%${#_SLP[@]}]}
+    local _RND_COL=$(($RANDOM%$COL))                    ## random tput col
+    local _RND_ROW=$(($RANDOM%$ROW))                    ## random tput line
+    local _RND_SLP=${_SLP[RANDOM%${#_SLP[@]}]}          ## random sleep
 
     ## count 1 - tput lines
     for _LINE in $(seq 1 ${ROW})

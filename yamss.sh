@@ -25,6 +25,10 @@ SLEEP="0.1"             ## default sleep interval
 QUIT_LET="q"            ## default quit / kill letter
 ## end of globals
 
+##########################################
+## below this nothing should be changed ##
+##########################################
+
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(readlink -m $(dirname $0))
 

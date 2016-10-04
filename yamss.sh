@@ -7,17 +7,18 @@
 #
 #   DESCRIPTION: [Y]et [A]nother [M]atrix [S]hell [S]cript.
 #                This script shows a matrix like display in terminal.
-#       OPTIONS: -c [num], -d, -h [num], -m [num], -q [let], -r, -s [num]
+#       OPTIONS: -a, -c [num], -d, -h [num], -m [num], -q [let], -r, -s [num]
 #  REQUIREMENTS: bash, gnu awk, gnu bc
 #          BUGS: they will be discovered at random times
 #         NOTES: https://en.wikipedia.org/wiki/ANSI_escape_code
 #        AUTHOR: Cesar Bodden (), cesar@pissedoffadmins.com
 #  ORGANIZATION: pissedoffadmins.com
 #       CREATED: 09/29/2016 05:14:34 PM EDT
-#      REVISION: 9
+#      REVISION: 10
 #===============================================================================
 
 ## globals that can be changed
+ASYNC="false"           ## default asynchronous mode
 CHARS="1"               ## default characters to use
 MN_CLR="34"             ## default main color
 HL_CLR="37"             ## default highlight color
@@ -83,8 +84,16 @@ function loop()
 {
     local _RND_COL=$(($RANDOM%$COL))                    ## random tput col
     local _RND_ROW=$(($RANDOM%$ROW))                    ## random tput line
-    local _RND_SLP=${_SLP[RANDOM%${#_SLP[@]}]}          ## random sleep
 
+    ## enable / disable asynchronous mode
+    if [[ ${ASYNC} == "true" ]]
+    then
+        local _RND_SLP=${_SLP[RANDOM%${#_SLP[@]}]}
+    else
+        local _RND_SLP=${SLEEP}
+    fi
+
+    ## enable / disable rainbow road mode
     if [[ ${RNBW_MODE} == "true" ]]
     then
         MN_CLR=${_RNBW[RANDOM%${#_RNBW[@]}]}
@@ -160,6 +169,10 @@ DESCRIPTION
     This script shows a matrix like display in terminal.
 
 OPTIONS
+    -a
+            This option sets asynchronous mode.
+            Default is disabled
+
     -c [number]
             This option sets the characters used for display.
             Different characters listed in chart below.
@@ -243,9 +256,12 @@ exit 0
 }
 
 ## option selection
-while getopts "c:dh:m:q:rs:" OPT
+while getopts "ac:dh:m:q:rs:" OPT
 do
     case "${OPT}" in
+        'a')
+            ASYNC="true"
+            ;;
         'c')
             CHARS=${OPTARG}
             ;;

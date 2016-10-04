@@ -16,13 +16,17 @@ NAME
     yamss.sh - matrix like shell script
 
 SYNOPSIS
-    yamss.sh [OPTION]...
+    ./yamss.sh [OPTION]...
 
 DESCRIPTION
     [Y]et [A]nother [M]atrix [S]hell [S]cript.
     This script shows a matrix like display in terminal.
 
 OPTIONS
+    -a
+            This option sets asynchronous mode.
+            Default is disabled
+
     -c [number]
             This option sets the characters used for display.
             Different characters listed in chart below.
@@ -46,6 +50,12 @@ OPTIONS
             This option specifies what letter to use to quit
             out of this script instead of using ctrl + c.
             Default is q
+
+    -r
+            This option specifies rainbow road mode.
+            All main and highlite colors will be random from
+            the color chart below.
+            Default is disabled
 
     -s [number]
             This option sets drop speed.
@@ -80,6 +90,10 @@ CHARACTER CHART
                   ǖǗǘǙǚǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽǾǿȀȁ
                   ȂȃȄȅȆȇȈȉȊȋȌȍȎȏȐȑȒȓȔȕȖȗȘșȚțȜȝȞȟȠȡȢȣȤȥȦȧȨȩȪȫȬȭ
                   ȮȯȰȱȲȳȴȵȶȷȸȹȺȻȼȽȾȿɀɁɂɃɄɅɆɇɈɉɊɋɌɍɎɏɐɑɒɓɔɕɖɗ%
+
+    Option [4]:
+          Blocks: ░▒▓
+
 
 COLOR CHART
     30      Black

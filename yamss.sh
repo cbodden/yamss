@@ -14,10 +14,13 @@
 #        AUTHOR: Cesar Bodden (), cesar@pissedoffadmins.com
 #  ORGANIZATION: pissedoffadmins.com
 #       CREATED: 09/29/2016 05:14:34 PM EDT
-#      REVISION: 10
+#      REVISION: 11
 #===============================================================================
 
-## globals that can be changed
+                       #################################
+                       ## globals that can be changed ##
+                       #################################
+
 ASYNC="false"           ## default asynchronous mode
 CHARS="1"               ## default characters to use
 MN_CLR="34"             ## default main color
@@ -25,11 +28,10 @@ HL_CLR="37"             ## default highlight color
 SLEEP="0.1"             ## default sleep interval
 QUIT_LET="q"            ## default quit / kill letter
 RNBW_MODE="false"       ## default rainbow mode
-## end of globals
 
-##########################################
-## below this nothing should be changed ##
-##########################################
+                   ##########################################
+                   ## below this nothing should be changed ##
+                   ##########################################
 
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(readlink -m $(dirname $0))

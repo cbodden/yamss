@@ -60,7 +60,6 @@ function main()
 
 function loop()
 {
-
     local _RND_COL=$(($RANDOM%$COL)) ## random tput col
     local _RND_ROW=$(($RANDOM%$ROW)) ## random tput line
     ## randomizing sleep for matrixy like drops
@@ -69,7 +68,7 @@ function loop()
     ## count 1 - tput lines
     for _LINE in $(seq 1 ${ROW})
     do
-        local INDEX=$(($RANDOM%${#_LET[*]})) ## random letter index
+        local INDEX=$(($RANDOM%${#_LET[*]}))            ## random letter index
         local _PRN_LET=$(printf "%s" "${_LET[$INDEX]}") ## print letter
         ## \033 CUP
         ## \033 SGR (color blue (34m)) letter
@@ -93,7 +92,6 @@ function loop()
     done
 
     ## count 1-(random tput line) - tput line
-    # for _RND_LINE in $(eval echo {$(($_RND_LINE-$_RND_ROW))..$ROW})
     for _RND_LINE in $(eval echo {$(($_RND_LINE-$_RND_ROW))..$ROW})
     do
         ## Moves the cursor to row n, column m

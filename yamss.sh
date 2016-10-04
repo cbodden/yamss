@@ -83,6 +83,7 @@ function loop()
     if [[ ${RNBW_MODE} == "true" ]]
     then
         MN_CLR=${_RNBW[RANDOM%${#_RNBW[@]}]}
+        HL_CLR=${_RNBW[RANDOM%${#_RNBW[@]}]}
     fi
 
     ## count 1 - tput lines

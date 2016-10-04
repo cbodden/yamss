@@ -33,9 +33,9 @@ RNBW_MODE="false"       ## default rainbow mode
                    ## below this nothing should be changed ##
                    ##########################################
 
+export TERM=vt100
 readonly PROGNAME=$(basename $0)
 readonly PROGDIR=$(readlink -m $(dirname $0))
-export TERM=vt100
 
 ## on ctrl c - reset term and clear screen
 trap 'echo -e "\033[2J" ; exit' 1 2 3 9 15

@@ -288,7 +288,10 @@ do
             ;;
     esac
 done
-[ ${OPTIND} -eq 1 ] && { usage ; }
+if [[ ${OPTIND} -eq 1 ]]
+then
+    usage
+fi
 shift $((OPTIND-1))
 
 main

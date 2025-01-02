@@ -72,6 +72,12 @@ function main()
             ## blocks
             declare -g _LET=($(\
                 awk 'BEGIN{for(i=9617;i<9620;i++)printf "%c\n",i}'))
+            ;;
+        '5')
+            ## lines
+            declare -g _LET=($(\
+                awk 'BEGIN{for(i=124;i<125;i++)printf "%c\n",i}'))
+            ;;
     esac
 
     ## sleep time array
@@ -243,6 +249,8 @@ CHARACTER CHART
     Option [4]:
           Blocks: ░▒▓
 
+    Option [5]:
+          Lines: |
 
 COLOR CHART
     30      Black    \033[30mBlack\033[0m

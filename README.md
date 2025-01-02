@@ -94,6 +94,9 @@ CHARACTER CHART
     Option [4]:
           Blocks: ░▒▓
 
+    Option [5]:
+          Lines: |
+
 
 COLOR CHART
     30      Black
